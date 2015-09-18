@@ -398,6 +398,8 @@ dtb_check_done:
 #endif
 
 		bl	cache_clean_flush
+		tst	r4, #1
+		bleq	cache_clean_flush
 
 		adr	r0, BSYM(restart)
 		add	r0, r0, r6
